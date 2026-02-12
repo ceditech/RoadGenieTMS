@@ -1,0 +1,54 @@
+<div class="loads-container">
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="brand-section">
+            <button mat-icon-button aria-label="Menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div>
+                <h1>RoadGenieTMS</h1>
+                <div class="subtitle">FROM EDXSTORE LLC</div>
+            </div>
+        </div>
+        <div class="actions">
+            <button mat-icon-button aria-label="Search">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button mat-flat-button color="primary" class="!rounded-full !h-10 !px-6">
+                + Load
+            </button>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters-row">
+        <div class="chips-group">
+            <rg-chip *ngFor="let filter of filterOptions" [label]="filter" [active]="activeFilter === filter"
+                (clicked)="onFilterChange(filter)"></rg-chip>
+        </div>
+        <button class="filter-btn-circle" aria-label="More filters">
+            <mat-icon>tune</mat-icon>
+        </button>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <rg-stat-card title="TOTAL REVENUE" value="$14,250.00"></rg-stat-card>
+        <rg-stat-card title="AVG RPM" value="$3.12" color="#137fec"></rg-stat-card>
+    </div>
+
+    <!-- Load List Section -->
+    <div class="section-header">
+        <div class="section-title">LOAD INBOX ({{ mockLoads.length }})</div>
+    </div>
+
+    <div class="loads-list">
+        <rg-load-card *ngFor="let load of mockLoads" [load]="load" (selected)="onLoadSelected($event)"></rg-load-card>
+    </div>
+</div>
+
+<!-- Bottom Navigation -->
+<rg-bottom-nav [activeTab]="activeTab" (tabChange)="onTabChange($event)"></rg-bottom-nav>
+
+<!-- FAB -->
+<rg-fab (clicked)="onFabClick()"></rg-fab>
