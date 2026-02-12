@@ -7,40 +7,53 @@ $roadgenie-primary: mat.define-palette(mat.$indigo-palette);
 $roadgenie-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $roadgenie-warn: mat.define-palette(mat.$red-palette);
 
-$roadgenie-theme: mat.define-light-theme((
-  color: (
-    primary: $roadgenie-primary,
-    accent: $roadgenie-accent,
-    warn: $roadgenie-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0,
-));
+$roadgenie-theme: mat.define-light-theme((color: (primary: $roadgenie-primary,
+        accent: $roadgenie-accent,
+        warn: $roadgenie-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
 
 @include mat.all-component-themes($roadgenie-theme);
 
 :root {
-  --bg-color: #ffffff;
-  --surface-color: #f8f9fa;
-  --text-color: #212529;
-  --text-muted: #6c757d;
-  --border-color: #dee2e6;
-  --primary-color: #3f51b5;
-  --danger-color: #f44336;
-  --focus-outline: 3px solid #3f51b5;
+  --primary: #137fec;
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --focus: 3px solid #137fec;
+
+  --primary-rgb: 19, 127, 236;
+  --surface-rgb: 255, 255, 255;
+  --text-rgb: 15, 23, 42;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+.dark-theme {
+  --bg: #101922;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+
+  --surface-rgb: 30, 41, 59;
+  --text-rgb: 241, 245, 249;
 }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
 
 /* ADA Baseline */
 :focus-visible {
-  outline: var(--focus-outline) !important;
+  outline: var(--focus) !important;
   outline-offset: 2px;
 }
 
@@ -48,7 +61,7 @@ html, body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--primary-color);
+  background: var(--primary);
   color: white;
   padding: 8px;
   z-index: 100;
