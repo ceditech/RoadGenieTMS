@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Load Inbox - TMS Dispatcher</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: contain;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased min-h-screen pb-24">
+<!-- Top Sticky Header -->
+<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 pt-4 pb-3">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-2xl font-800 tracking-tight">Load Inbox</h1>
+<div class="relative">
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<button class="p-2 bg-primary/10 rounded-full text-primary">
+<span class="material-icons-round text-xl">notifications</span>
+</button>
+</div>
+</div>
+<!-- Search Input -->
+<div class="relative group mb-4">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-icons-round">search</span>
+</span>
+<input class="block w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border-none rounded-xl ring-1 ring-slate-200 dark:ring-slate-700 focus:ring-2 focus:ring-primary shadow-sm text-sm" placeholder="Search pickup, city, or broker..." type="text"/>
+</div>
+<!-- Filter Chips (Horizontal Scroll) -->
+<div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-1 -mx-4 px-4">
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-primary text-white text-xs font-bold tracking-wide shadow-lg shadow-primary/25">
+                NEW (12)
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold">
+                NEGOTIATING (4)
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold">
+                ASSIGNED
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold">
+                BOOKED
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold">
+                SKIPPED
+            </button>
+</div>
+</header>
+<!-- Main Content: Load Cards -->
+<main class="p-4 space-y-4">
+<!-- Load Card 1 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">
+                            CR
+                        </div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">C.H. Robinson</span>
+</div>
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">High Match</span>
+</div>
+<div class="flex items-start space-x-4 mb-4">
+<div class="flex flex-col items-center pt-1">
+<div class="w-2.5 h-2.5 rounded-full border-2 border-primary"></div>
+<div class="w-0.5 h-8 bg-slate-200 dark:bg-slate-700 my-0.5"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<div class="flex-1 space-y-3">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Pickup</p>
+<p class="text-base font-bold leading-tight">Chicago, IL <span class="text-slate-400 font-medium">60601</span></p>
+<p class="text-xs text-slate-500">Oct 24 • 08:00 AM</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Dropoff</p>
+<p class="text-base font-bold leading-tight">Dallas, TX <span class="text-slate-400 font-medium">75201</span></p>
+<p class="text-xs text-slate-500">Oct 26 • 02:00 PM</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 bg-primary/5 dark:bg-primary/10 rounded-lg p-3 mb-4">
+<div class="text-center">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Rate</p>
+<p class="text-sm font-bold text-primary">$2,450</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">RPM</p>
+<p class="text-sm font-bold">$2.54</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Miles</p>
+<p class="text-sm font-bold">964</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Equip</p>
+<p class="text-[11px] font-bold leading-tight">53' REEF</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white py-3 rounded-lg text-sm font-bold shadow-md shadow-primary/20 active:scale-95 transition-transform">Assign</button>
+<button class="flex-1 bg-white dark:bg-slate-700 border border-primary/30 text-primary py-3 rounded-lg text-sm font-bold active:scale-95 transition-transform">Negotiate</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-900 text-slate-400 flex items-center justify-center rounded-lg active:scale-95 transition-transform">
+<span class="material-icons-round">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Load Card 2 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500 font-bold text-xs">
+                            JB
+                        </div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">J.B. Hunt</span>
+</div>
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 dark:bg-slate-900/40 dark:text-slate-400">New Load</span>
+</div>
+<div class="flex items-start space-x-4 mb-4">
+<div class="flex flex-col items-center pt-1">
+<div class="w-2.5 h-2.5 rounded-full border-2 border-slate-300 dark:border-slate-600"></div>
+<div class="w-0.5 h-8 bg-slate-200 dark:bg-slate-700 my-0.5"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+</div>
+<div class="flex-1 space-y-3">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Pickup</p>
+<p class="text-base font-bold leading-tight">Nashville, TN <span class="text-slate-400 font-medium">37201</span></p>
+<p class="text-xs text-slate-500">Oct 24 • 11:30 AM</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Dropoff</p>
+<p class="text-base font-bold leading-tight">Atlanta, GA <span class="text-slate-400 font-medium">30301</span></p>
+<p class="text-xs text-slate-500">Oct 25 • 07:00 AM</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 bg-slate-50 dark:bg-slate-900 rounded-lg p-3 mb-4 border border-slate-100 dark:border-slate-800">
+<div class="text-center">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Rate</p>
+<p class="text-sm font-bold text-slate-800 dark:text-white">$1,100</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">RPM</p>
+<p class="text-sm font-bold">$4.42</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Miles</p>
+<p class="text-sm font-bold">249</p>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-700">
+<p class="text-[10px] text-slate-500 font-medium uppercase">Equip</p>
+<p class="text-[11px] font-bold leading-tight">53' VAN</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white py-3 rounded-lg text-sm font-bold active:scale-95 transition-transform">Assign</button>
+<button class="flex-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 py-3 rounded-lg text-sm font-bold active:scale-95 transition-transform">Negotiate</button>
+<button class="w-12 bg-slate-100 dark:bg-slate-900 text-slate-400 flex items-center justify-center rounded-lg active:scale-95 transition-transform">
+<span class="material-icons-round">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Load Card 3 (Negotiating State) -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border-2 border-primary/20 overflow-hidden relative">
+<div class="absolute top-0 right-0">
+<div class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-widest">In Negotiation</div>
+</div>
+<div class="p-4">
+<div class="flex items-center space-x-2 mb-3">
+<div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500 font-bold text-xs">
+                        TQL
+                    </div>
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">TQL</span>
+</div>
+<div class="flex items-start space-x-4 mb-4">
+<div class="flex flex-col items-center pt-1">
+<div class="w-2.5 h-2.5 rounded-full border-2 border-primary"></div>
+<div class="w-0.5 h-8 bg-primary/20 my-0.5"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<div class="flex-1 space-y-3">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Pickup</p>
+<p class="text-base font-bold leading-tight">Denver, CO</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Dropoff</p>
+<p class="text-base font-bold leading-tight">Salt Lake City, UT</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-primary/10 rounded-lg mb-4">
+<div class="space-y-0.5">
+<p class="text-[10px] text-slate-500 font-bold uppercase">Your Offer</p>
+<p class="text-lg font-extrabold text-primary leading-none">$1,850</p>
+</div>
+<div class="material-icons-round text-primary/40">compare_arrows</div>
+<div class="text-right space-y-0.5">
+<p class="text-[10px] text-slate-500 font-bold uppercase">Broker Bid</p>
+<p class="text-lg font-extrabold text-slate-700 dark:text-slate-200 leading-none">$1,600</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white py-3 rounded-lg text-sm font-bold active:scale-95 transition-transform">Update Offer</button>
+<button class="w-12 bg-rose-50 dark:bg-rose-900/20 text-rose-500 flex items-center justify-center rounded-lg active:scale-95 transition-transform">
+<span class="material-icons-round text-xl">delete_outline</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-6 py-2 pb-8 flex justify-between items-center z-40">
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">grid_view</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-primary relative">
+<span class="material-icons-round text-2xl">mail</span>
+<span class="text-[10px] font-bold">Inbox</span>
+<div class="absolute -top-1 right-1 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-slate-900"></div>
+</button>
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">local_shipping</span>
+<span class="text-[10px] font-bold">Loads</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Settlement</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">person_outline</span>
+<span class="text-[10px] font-bold">Account</span>
+</button>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-4 w-14 h-14 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center active:scale-90 transition-transform z-20">
+<span class="material-icons-round text-3xl">add</span>
+</button>
+</body></html>

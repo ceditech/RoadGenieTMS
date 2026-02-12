@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Load Details &amp; Skip Reason</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-0 m-0">
+<!-- Mobile Screen Container (iPhone Simulation) -->
+<div class="relative w-full max-w-[430px] h-screen bg-slate-200 overflow-hidden shadow-2xl mx-auto flex flex-col border-x border-slate-300">
+<!-- Mock Map Background (Static Placeholder) -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Modern high-contrast digital map interface" data-location="Chicago" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8AL57322zn20XZYseRlshA_advnBg0WIakx5XoaUHO7I-0FevNE1RhSF2pbFHxiHZeAfLQxUhr7VTqPic1PuzHXjBizOu9cqUOYt4qfqdAbEAEqEjM8V-suMvi40Lyi8rwwqnbz_O5kmVMaBOGbOjILUxlUvEejqNHPRAGIBwKVrkM6Osxze2dOSvYLNsV1lzlvKkgJ9Oo8imDFiBkQieFSCMEcETGRZMgryNm-jQtnuMJuR_fxsFHT4xadcRPDEx3ts1EAHa9xI"/>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<!-- Bottom Sheet Layer -->
+<div class="absolute inset-0 flex flex-col justify-end z-10">
+<div class="bg-white dark:bg-background-dark rounded-t-xl shadow-[0_-10px_40px_rgba(0,0,0,0.15)] flex flex-col max-h-[92%] transition-all">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center py-3">
+<div class="w-10 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-5 pb-4 flex justify-between items-start border-b border-slate-100 dark:border-slate-800">
+<div>
+<h1 class="text-xl font-bold">Load #LD-9402</h1>
+<p class="text-sm text-slate-500 font-medium">Chicago, IL → Dallas, TX</p>
+</div>
+<button class="w-8 h-8 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-300">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<!-- Scrollable Content Area -->
+<div class="overflow-y-auto px-5 py-6 space-y-6">
+<!-- Logistics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-100 dark:border-slate-800">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Pickup Time</p>
+<p class="text-sm font-semibold">Oct 24, 08:00 AM</p>
+<p class="text-xs text-slate-400">Firm Appointment</p>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-100 dark:border-slate-800">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Drop-off Time</p>
+<p class="text-sm font-semibold">Oct 26, 04:30 PM</p>
+<p class="text-xs text-slate-400">Flex Delivery</p>
+</div>
+</div>
+<!-- Load Specs -->
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center space-x-3">
+<span class="material-icons text-primary/80">scale</span>
+<div>
+<p class="text-xs text-slate-500">Weight</p>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">42,500 lbs</p>
+</div>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center space-x-3">
+<span class="material-icons text-primary/80">inventory_2</span>
+<div>
+<p class="text-xs text-slate-500">Pallets</p>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">22 Standard</p>
+</div>
+</div>
+<div class="w-px h-8 bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center space-x-3">
+<span class="material-icons text-primary/80">category</span>
+<div>
+<p class="text-xs text-slate-500">Type</p>
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Dry Van</p>
+</div>
+</div>
+</div>
+<!-- Broker Contact Card -->
+<div class="p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/20">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary">support_agent</span>
+</div>
+<div>
+<p class="text-sm font-bold">Logistics Hub Inc.</p>
+<p class="text-[11px] text-slate-500 uppercase font-bold tracking-tight">Verified Broker</p>
+</div>
+</div>
+<div class="flex space-x-2">
+<button class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+<span class="material-icons text-lg">call</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white dark:bg-slate-800 text-primary border border-primary/20 flex items-center justify-center shadow-sm">
+<span class="material-icons text-lg">mail</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-medium text-slate-600 dark:text-slate-400 border-t border-primary/10 pt-3">
+<span>Contact: Sarah Miller</span>
+<span>ID: #BKR-0442</span>
+</div>
+</div>
+<!-- Status Selection -->
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Current Status</label>
+<div class="relative">
+<select class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3 appearance-none focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-medium">
+<option>Assigned</option>
+<option selected="">In Transit</option>
+<option>Loading</option>
+<option>Unloading</option>
+<option>Completed</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Dispatcher Notes -->
+<div class="space-y-2 pb-4">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-widest px-1">Dispatcher Notes</label>
+<textarea class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3 h-28 focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none text-sm leading-relaxed" placeholder="Add specific delivery instructions or gate codes here..."></textarea>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-5 border-t border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md flex flex-col space-y-3">
+<button class="w-full py-4 bg-primary text-white font-bold rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors flex items-center justify-center space-x-2">
+<span class="material-icons text-xl">save</span>
+<span>Save Changes</span>
+</button>
+<button class="w-full py-4 text-rose-500 font-bold hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-lg transition-colors">
+                        Skip this Load
+                    </button>
+</div>
+</div>
+</div>
+<!-- Skip Reason Modal Overlay -->
+<div class="absolute inset-0 z-50 flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-sm">
+<div class="w-full max-w-sm bg-white dark:bg-slate-900 rounded-xl shadow-2xl overflow-hidden border border-white/20">
+<div class="p-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold">Skip Reason</h2>
+<button class="text-slate-400 hover:text-slate-600">
+<span class="material-icons">close</span>
+</button>
+</div>
+<p class="text-sm text-slate-500 mb-6">Please provide a reason for skipping this load. This helps us optimize future assignments.</p>
+<div class="space-y-3 mb-6">
+<label class="flex items-center p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border-2 border-primary cursor-pointer transition-all">
+<input checked="" class="w-5 h-5 text-primary border-slate-300 focus:ring-primary" name="reason" type="radio"/>
+<span class="ml-3 font-semibold text-sm">Rate too low</span>
+</label>
+<label class="flex items-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 cursor-pointer">
+<input class="w-5 h-5 text-primary border-slate-300 focus:ring-primary" name="reason" type="radio"/>
+<span class="ml-3 font-semibold text-sm">Deadhead too long</span>
+</label>
+<label class="flex items-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 cursor-pointer">
+<input class="w-5 h-5 text-primary border-slate-300 focus:ring-primary" name="reason" type="radio"/>
+<span class="ml-3 font-semibold text-sm">Driver unavailable</span>
+</label>
+<div class="relative">
+<textarea class="w-full mt-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Other reason..."></textarea>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 rounded-lg bg-slate-100 dark:bg-slate-800 font-bold text-slate-600 dark:text-slate-300 text-sm">
+                            Cancel
+                        </button>
+<button class="py-3 px-4 rounded-lg bg-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-200 dark:shadow-none">
+                            Confirm Skip
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- iOS Status Bar Mock -->
+<div class="absolute top-0 left-0 right-0 h-11 px-8 flex justify-between items-center z-[100] bg-transparent pointer-events-none">
+<div class="text-[15px] font-bold text-white">9:41</div>
+<div class="flex items-center space-x-1.5">
+<div class="w-4 h-4 text-white"><span class="material-icons text-[16px]">signal_cellular_alt</span></div>
+<div class="w-4 h-4 text-white"><span class="material-icons text-[16px]">wifi</span></div>
+<div class="w-6 h-4 text-white flex items-center border border-white/40 rounded-[3px] p-0.5"><div class="bg-white h-full w-4 rounded-[1px]"></div></div>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="absolute bottom-1 w-full flex justify-center z-[100] pointer-events-none">
+<div class="w-32 h-1.5 bg-slate-400/30 rounded-full"></div>
+</div>
+</div>
+</body></html>

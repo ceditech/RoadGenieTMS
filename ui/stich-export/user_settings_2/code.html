@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Settings - RoadGenieTMS (High Contrast)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "hc-black": "#000000",
+                        "hc-white": "#FFFFFF",
+                        "hc-yellow": "#FFFF00",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderWidth: {
+                        "3": "3px",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-hc-black text-hc-white font-display;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-hc-black border-b-3 border-hc-white px-6 pt-12 pb-6">
+<h1 class="text-3xl font-extrabold tracking-tight uppercase text-hc-yellow">Settings</h1>
+</header>
+<main class="flex-1 overflow-y-auto px-4 pb-32 space-y-8 no-scrollbar pt-6">
+<section class="bg-hc-black border-3 border-hc-white p-5 flex items-center space-x-6">
+<div class="relative">
+<img alt="User Portrait" class="w-24 h-24 rounded-none object-cover border-3 border-hc-yellow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOKdw-w2fl7Odar-D91HV9PGwuUO9-1tW3U7Qsj-_G5ojS-gbOd7z4AxmIkNHt-x6Lp2aLIeu2BRsy-Dyq9UxxiMpK_z3Ynr6VTCWXV9qtsrdskvsZ2dV73n4RsffPOE0lOmuJJnGiOQbT6GUT_6uROd4mc9jwpjHdTStkr1kJ_2ITeSmOM_OmOD1aFbm1CFfu1F6vcCagTkQJLBTZVKUt2YcN_aw4jHUUv3FzhYwpqq5FKXareTnJyZvb1JwI4HOqGkxJzkA9Dw4"/>
+<div class="absolute bottom-0 right-0 w-6 h-6 bg-hc-yellow border-3 border-hc-black"></div>
+</div>
+<div class="flex-1">
+<h2 class="text-xl font-extrabold text-hc-white">ALEX JOHNSON</h2>
+<div class="flex items-center mt-2">
+<span class="bg-hc-yellow text-hc-black text-xs font-black uppercase px-2 py-1 border-2 border-hc-black">
+                        SENIOR DISPATCHER
+                    </span>
+</div>
+<p class="text-sm font-bold text-hc-white mt-2">ID: RG-88429</p>
+</div>
+<button aria-label="Edit Profile" class="p-2 border-3 border-hc-white bg-hc-black text-hc-white">
+<span class="material-icons-round text-3xl">edit</span>
+</button>
+</section>
+<section class="space-y-4">
+<h3 class="text-base font-black text-hc-yellow uppercase tracking-widest ml-1 underline decoration-2 underline-offset-4">Appearance</h3>
+<div class="grid grid-cols-3 gap-2 bg-hc-black">
+<button class="flex flex-col items-center py-4 border-3 border-hc-white text-hc-white opacity-50">
+<span class="material-icons-round text-3xl">light_mode</span>
+<span class="text-xs font-black mt-2 uppercase">Light</span>
+</button>
+<button class="flex flex-col items-center py-4 border-3 border-hc-white text-hc-white opacity-50">
+<span class="material-icons-round text-3xl">dark_mode</span>
+<span class="text-xs font-black mt-2 uppercase">Dark</span>
+</button>
+<button class="flex flex-col items-center py-4 border-3 border-hc-yellow bg-hc-yellow text-hc-black outline outline-2 outline-hc-black -outline-offset-2">
+<span class="material-icons-round text-3xl">visibility</span>
+<span class="text-xs font-black mt-2 uppercase">Contrast ON</span>
+</button>
+</div>
+</section>
+<section class="space-y-4">
+<h3 class="text-base font-black text-hc-yellow uppercase tracking-widest ml-1 underline decoration-2 underline-offset-4">General</h3>
+<div class="bg-hc-black border-3 border-hc-white divide-y-3 divide-hc-white overflow-hidden">
+<button class="w-full flex items-center justify-between p-5 hover:bg-hc-yellow hover:text-hc-black group">
+<div class="flex items-center space-x-4">
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">notifications</span>
+<span class="text-lg font-black uppercase">Notifications</span>
+</div>
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 hover:bg-hc-yellow hover:text-hc-black group">
+<div class="flex items-center space-x-4">
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">language</span>
+<span class="text-lg font-black uppercase">Language</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-sm font-bold uppercase">English (US)</span>
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">chevron_right</span>
+</div>
+</button>
+<button class="w-full flex items-center justify-between p-5 hover:bg-hc-yellow hover:text-hc-black group">
+<div class="flex items-center space-x-4">
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">security</span>
+<span class="text-lg font-black uppercase">Security</span>
+</div>
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">chevron_right</span>
+</button>
+</div>
+</section>
+<section class="space-y-4">
+<h3 class="text-base font-black text-hc-yellow uppercase tracking-widest ml-1 underline decoration-2 underline-offset-4">About System</h3>
+<div class="bg-hc-black border-3 border-hc-white divide-y-3 divide-hc-white overflow-hidden">
+<button class="w-full flex items-center justify-between p-5">
+<span class="text-lg font-black uppercase">Version</span>
+<span class="text-lg font-bold">2.4.0</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 hover:bg-hc-yellow hover:text-hc-black group">
+<span class="text-lg font-black uppercase">Terms of Service</span>
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">open_in_new</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 hover:bg-hc-yellow hover:text-hc-black group">
+<span class="text-lg font-black uppercase">Privacy Policy</span>
+<span class="material-icons-round text-3xl text-hc-white group-hover:text-hc-black">open_in_new</span>
+</button>
+<div class="p-8 text-center bg-hc-white text-hc-black">
+<span class="material-icons-round text-5xl mb-4 block">auto_fix_high</span>
+<p class="text-sm font-black uppercase tracking-tighter">RoadGenieTMS Efficiency &amp; Safety</p>
+<p class="text-xs font-bold mt-2">© 2024 ALL RIGHTS RESERVED</p>
+</div>
+</div>
+</section>
+<section class="pt-4">
+<button class="w-full bg-hc-black text-hc-yellow flex items-center justify-center space-x-3 p-6 border-4 border-hc-yellow font-black text-xl uppercase active:bg-hc-yellow active:text-hc-black transition-colors">
+<span class="material-icons-round text-3xl">logout</span>
+<span>Log Out</span>
+</button>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-hc-black border-t-4 border-hc-white px-4 pt-4 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center space-y-1 text-hc-white opacity-60">
+<span class="material-icons-round text-3xl">dashboard</span>
+<span class="text-[10px] font-black uppercase">Dashboard</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-white opacity-60">
+<span class="material-icons-round text-3xl">local_shipping</span>
+<span class="text-[10px] font-black uppercase">Loads</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-white opacity-60">
+<span class="material-icons-round text-3xl">explore</span>
+<span class="text-[10px] font-black uppercase">Map</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-yellow">
+<span class="material-icons-round text-4xl border-b-4 border-hc-yellow">settings</span>
+<span class="text-[10px] font-black uppercase mt-1">Settings</span>
+</button>
+</nav>
+
+</body></html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Settings - RoadGenieTMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar-hide for a cleaner iOS look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<!-- Header / Status Bar Area -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 pt-12 pb-4">
+<h1 class="text-2xl font-bold tracking-tight">Settings</h1>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-4 pb-32 space-y-6 no-scrollbar">
+<!-- Profile Section -->
+<section class="bg-white dark:bg-primary/5 rounded-xl p-5 shadow-sm border border-primary/10 flex items-center space-x-4">
+<div class="relative">
+<img alt="User Portrait" class="w-20 h-20 rounded-full object-cover border-2 border-primary" data-alt="Professional portrait of a male dispatcher" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOKdw-w2fl7Odar-D91HV9PGwuUO9-1tW3U7Qsj-_G5ojS-gbOd7z4AxmIkNHt-x6Lp2aLIeu2BRsy-Dyq9UxxiMpK_z3Ynr6VTCWXV9qtsrdskvsZ2dV73n4RsffPOE0lOmuJJnGiOQbT6GUT_6uROd4mc9jwpjHdTStkr1kJ_2ITeSmOM_OmOD1aFbm1CFfu1F6vcCagTkQJLBTZVKUt2YcN_aw4jHUUv3FzhYwpqq5FKXareTnJyZvb1JwI4HOqGkxJzkA9Dw4"/>
+<div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 border-2 border-white dark:border-background-dark rounded-full"></div>
+</div>
+<div class="flex-1">
+<h2 class="text-lg font-bold">Alex Johnson</h2>
+<div class="flex items-center mt-1">
+<span class="bg-primary/10 text-primary dark:bg-primary/20 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-primary/20">
+                        Senior Dispatcher
+                    </span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">ID: RG-88429</p>
+</div>
+<button aria-label="Edit Profile" class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons-round">edit</span>
+</button>
+</section>
+<!-- Theme Configuration -->
+<section class="space-y-3">
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest ml-1">Appearance</h3>
+<div class="bg-white dark:bg-primary/5 rounded-xl p-1 flex shadow-sm border border-primary/10">
+<button class="flex-1 flex flex-col items-center py-3 rounded-lg bg-primary text-white shadow-md">
+<span class="material-icons-round text-xl">light_mode</span>
+<span class="text-[11px] font-semibold mt-1">Light</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+<span class="material-icons-round text-xl">dark_mode</span>
+<span class="text-[11px] font-semibold mt-1">Dark</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+<span class="material-icons-round text-xl">visibility</span>
+<span class="text-[11px] font-semibold mt-1">Contrast</span>
+</button>
+</div>
+</section>
+<!-- General Settings List -->
+<section class="space-y-3">
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest ml-1">General</h3>
+<div class="bg-white dark:bg-primary/5 rounded-xl shadow-sm border border-primary/10 divide-y divide-primary/5 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+<span class="material-icons-round">notifications</span>
+</div>
+<span class="font-medium">Notifications</span>
+</div>
+<span class="material-icons-round text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+<span class="material-icons-round">language</span>
+</div>
+<span class="font-medium">Language</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-sm text-slate-400">English (US)</span>
+<span class="material-icons-round text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+<span class="material-icons-round">security</span>
+</div>
+<span class="font-medium">Security &amp; Privacy</span>
+</div>
+<span class="material-icons-round text-slate-300 group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- About Section -->
+<section class="space-y-3">
+<h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest ml-1">About RoadGenieTMS</h3>
+<div class="bg-white dark:bg-primary/5 rounded-xl shadow-sm border border-primary/10 divide-y divide-primary/5 overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<span class="font-medium">Version</span>
+<span class="text-sm text-slate-400">v2.4.0 (Build 882)</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
+<span class="font-medium">Terms of Service</span>
+<span class="material-icons-round text-slate-300 group-hover:text-primary transition-colors">open_in_new</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors group">
+<span class="font-medium">Privacy Policy</span>
+<span class="material-icons-round text-slate-300 group-hover:text-primary transition-colors">open_in_new</span>
+</button>
+<div class="p-6 text-center space-y-2">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-2">
+<span class="material-icons-round text-primary text-3xl">auto_fix_high</span>
+</div>
+<p class="text-xs text-slate-400 italic">RoadGenieTMS is designed for efficiency and safety. All rights reserved © 2024</p>
+</div>
+</div>
+</section>
+<!-- Logout Action -->
+<section class="pt-2">
+<button class="w-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 flex items-center justify-center space-x-2 p-4 rounded-xl border border-red-200 dark:border-red-900/30 font-bold active:scale-95 transition-transform">
+<span class="material-icons-round">logout</span>
+<span>Log Out of RoadGenie</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 px-6 pt-3 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">dashboard</span>
+<span class="text-[10px] font-bold">DASHBOARD</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">local_shipping</span>
+<span class="text-[10px] font-bold">LOADS</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-2xl">explore</span>
+<span class="text-[10px] font-bold">MAP</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-primary">
+<span class="material-icons-round text-2xl">settings</span>
+<span class="text-[10px] font-bold">SETTINGS</span>
+</button>
+</nav>
+</body></html>

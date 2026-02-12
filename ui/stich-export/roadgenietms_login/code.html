@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoadGenieTMS - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between selection:bg-primary/30">
+<!-- Top Branding Section -->
+<header class="pt-12 pb-6 px-6 text-center">
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/20 mb-2">
+<span class="material-icons text-white text-4xl">local_shipping</span>
+</div>
+<h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                RoadGenie<span class="text-primary">TMS</span>
+</h1>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                From EDXSTORE LLC
+            </p>
+</div>
+</header>
+<!-- Main Login Card Container -->
+<main class="flex-grow flex items-start justify-center px-6">
+<div class="w-full max-w-sm bg-white dark:bg-slate-900/50 p-8 rounded-xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
+<form action="#" class="space-y-6" method="POST">
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="email">
+                        Email Address
+                    </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400 group-focus-within:text-primary transition-colors text-xl">alternate_email</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-base placeholder:text-slate-400 outline-none" id="email" name="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="password">
+                            Password
+                        </label>
+<a class="text-xs font-bold text-primary hover:text-primary/80 transition-colors" href="#">
+                            Forgot password?
+                        </a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400 group-focus-within:text-primary transition-colors text-xl">lock_outline</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-base placeholder:text-slate-400 outline-none" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center" type="button">
+<span class="material-icons text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me (Accessibility focused toggle) -->
+<div class="flex items-center">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 text-primary focus:ring-primary transition-all cursor-pointer" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm font-medium text-slate-600 dark:text-slate-400 cursor-pointer" for="remember-me">
+                        Remember this device
+                    </label>
+</div>
+<!-- Sign In Button -->
+<button class="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-lg shadow-lg shadow-primary/30 text-base font-bold text-white bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all focus:outline-none focus:ring-4 focus:ring-primary/40 min-h-[56px]" type="submit">
+                    Sign in
+                </button>
+</form>
+<!-- Divider -->
+<div class="relative my-8">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="relative flex justify-center text-sm uppercase font-bold tracking-wider">
+<span class="px-3 bg-white dark:bg-[#101922] text-slate-400">Or continue with</span>
+</div>
+</div>
+<!-- Social Login Button -->
+<button class="w-full flex justify-center items-center gap-3 py-3.5 px-4 border border-slate-300 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200 min-h-[56px]" type="button">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Google colorful letter G logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS2WeL0OmPuM0Zblq-U0u31CETqOOTLbXer0V5zZgHeiudbxAP61Ym4Z-tKxaYUZiucLNAre74qBdf3H38HW8n5YRSRP75zmuOmeqVHjKhq-8mHtgTas2QnfMBGaP61RZUOkCj6n0CvcDx7-BQf7PL7Hw8SeSzGtZIbeFIetFI3H03vhSsmOMW-Gtw-ZU68mR-hOrGZRWZOFr_SoobRwFFXsSrO6wwydOY_8x5xkl-XbRxQfbmfzKZT4XnxXAzbzwYj9mwjkF0nxM"/>
+<span>Google</span>
+</button>
+<!-- Registration Link -->
+<p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
+                New dispatcher? 
+                <a class="font-bold text-primary hover:text-primary/80 transition-colors" href="#">
+                    Create an account
+                </a>
+</p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="py-8 px-6 text-center">
+<p class="text-xs font-semibold text-slate-400 dark:text-slate-600 tracking-widest uppercase">
+            © 2024 RoadGenieTMS from EDXSTORE LLC
+        </p>
+<div class="mt-4 flex justify-center gap-6">
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+<!-- Background Decoration for High-End Feel -->
+<div class="fixed top-0 right-0 -z-10 opacity-10 dark:opacity-5 pointer-events-none overflow-hidden">
+<span class="material-icons text-[40rem] rotate-12 transform translate-x-1/2 -translate-y-1/4 text-primary">local_shipping</span>
+</div>
+</body></html>

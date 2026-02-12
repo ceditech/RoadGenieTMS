@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Load Inbox - High Contrast TMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "hc-black": "#000000",
+                        "hc-white": "#FFFFFF",
+                        "hc-yellow": "#FFFF00",
+                        "hc-cyan": "#00FFFF",
+                        "hc-magenta": "#FF00FF",
+                        "hc-green": "#00FF00",
+                        "hc-orange": "#FF8800"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-bg: #000000;
+            --primary-text: #FFFFFF;
+            --accent-yellow: #FFFF00;
+            --accent-cyan: #00FFFF;
+            --border-width: 2px;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: contain;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hc-border {
+            border: var(--border-width) solid var(--primary-text);
+        }
+        .hc-border-yellow {
+            border: var(--border-width) solid var(--accent-yellow);
+        }
+        .hc-card {
+            background-color: #000000;
+            border: var(--border-width) solid #FFFFFF;
+        }
+        .touch-target {
+            min-height: 48px;
+            min-width: 48px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display antialiased min-h-screen pb-32">
+<header class="sticky top-0 z-30 bg-hc-black border-b-2 border-hc-white px-4 pt-4 pb-3">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-3xl font-800 tracking-tight text-hc-white">LOAD INBOX</h1>
+<div class="relative">
+<button class="p-2 border-2 border-hc-yellow bg-hc-black text-hc-yellow rounded-none touch-target flex items-center justify-center">
+<span class="material-icons-round text-3xl">notifications</span>
+<span class="absolute top-0 right-0 h-4 w-4 bg-hc-magenta border border-hc-white"></span>
+</button>
+</div>
+</div>
+<div class="relative mb-4">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-hc-cyan">
+<span class="material-icons-round text-2xl">search</span>
+</span>
+<input class="block w-full pl-12 pr-4 py-4 bg-hc-black border-2 border-hc-white focus:border-hc-yellow focus:ring-0 text-hc-white placeholder-hc-white/60 font-bold uppercase" placeholder="SEARCH LOADS..." type="text"/>
+</div>
+<div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-2 -mx-4 px-4">
+<button class="flex-shrink-0 px-6 py-2 border-2 border-hc-yellow bg-hc-yellow text-hc-black text-sm font-800 uppercase">
+            NEW (12)
+        </button>
+<button class="flex-shrink-0 px-6 py-2 border-2 border-hc-white bg-hc-black text-hc-white text-sm font-800 uppercase">
+            NEGOTIATING
+        </button>
+<button class="flex-shrink-0 px-6 py-2 border-2 border-hc-white bg-hc-black text-hc-white text-sm font-800 uppercase">
+            ASSIGNED
+        </button>
+<button class="flex-shrink-0 px-6 py-2 border-2 border-hc-white bg-hc-black text-hc-white text-sm font-800 uppercase">
+            BOOKED
+        </button>
+</div>
+</header>
+<main class="p-4 space-y-6">
+<div class="hc-card p-4">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 border-2 border-hc-cyan flex items-center justify-center text-hc-cyan font-800 text-lg">
+                    CR
+                </div>
+<span class="text-lg font-800 text-hc-white uppercase underline decoration-hc-cyan decoration-2">C.H. Robinson</span>
+</div>
+<span class="px-3 py-1 bg-hc-green text-hc-black font-800 text-xs uppercase border border-hc-black">High Match</span>
+</div>
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex flex-col items-center pt-1">
+<div class="w-4 h-4 border-4 border-hc-cyan bg-hc-black"></div>
+<div class="w-1 h-12 bg-hc-white"></div>
+<div class="w-4 h-4 bg-hc-cyan"></div>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<p class="text-xs font-800 text-hc-cyan uppercase tracking-widest">Pickup</p>
+<p class="text-xl font-800 leading-tight text-hc-white">CHICAGO, IL</p>
+<p class="text-sm text-hc-white font-bold">OCT 24 • 08:00 AM</p>
+</div>
+<div>
+<p class="text-xs font-800 text-hc-cyan uppercase tracking-widest">Dropoff</p>
+<p class="text-xl font-800 leading-tight text-hc-white">DALLAS, TX</p>
+<p class="text-sm text-hc-white font-bold">OCT 26 • 02:00 PM</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-6">
+<div class="border-2 border-hc-white p-3 text-center">
+<p class="text-xs text-hc-cyan font-800 uppercase">Rate</p>
+<p class="text-2xl font-900 text-hc-yellow">$2,450</p>
+</div>
+<div class="border-2 border-hc-white p-3 text-center">
+<p class="text-xs text-hc-cyan font-800 uppercase">RPM</p>
+<p class="text-2xl font-900 text-hc-white">$2.54</p>
+</div>
+<div class="border-2 border-hc-white p-3 text-center">
+<p class="text-xs text-hc-cyan font-800 uppercase">Miles</p>
+<p class="text-2xl font-900 text-hc-white">964</p>
+</div>
+<div class="border-2 border-hc-white p-3 text-center">
+<p class="text-xs text-hc-cyan font-800 uppercase">Equip</p>
+<p class="text-lg font-900 text-hc-white">53' REEF</p>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-hc-yellow text-hc-black py-4 border-4 border-hc-yellow text-lg font-900 uppercase touch-target">Assign Load</button>
+<div class="flex gap-3">
+<button class="flex-1 border-2 border-hc-cyan text-hc-cyan py-4 text-lg font-900 uppercase touch-target">Negotiate</button>
+<button class="w-16 border-2 border-hc-white text-hc-white flex items-center justify-center touch-target">
+<span class="material-icons-round text-3xl">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="hc-card border-hc-yellow p-4 relative">
+<div class="absolute -top-1 -right-1 bg-hc-yellow text-hc-black px-4 py-1 font-900 text-xs uppercase">
+            In Negotiation
+        </div>
+<div class="flex items-center space-x-3 mb-4 mt-2">
+<div class="w-10 h-10 border-2 border-hc-orange flex items-center justify-center text-hc-orange font-800 text-lg">
+                TQL
+            </div>
+<span class="text-lg font-800 text-hc-white uppercase underline decoration-hc-orange decoration-2">TQL</span>
+</div>
+<div class="flex items-center justify-between p-4 border-2 border-hc-white mb-6">
+<div class="text-center">
+<p class="text-[10px] text-hc-cyan font-900 uppercase">Your Offer</p>
+<p class="text-2xl font-900 text-hc-yellow">$1,850</p>
+</div>
+<span class="material-icons-round text-hc-cyan text-3xl">swap_horiz</span>
+<div class="text-center">
+<p class="text-[10px] text-hc-cyan font-900 uppercase">Broker Bid</p>
+<p class="text-2xl font-900 text-hc-white">$1,600</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-hc-yellow text-hc-black py-4 border-4 border-hc-yellow text-lg font-900 uppercase touch-target">Update Offer</button>
+<button class="w-16 border-2 border-hc-magenta text-hc-magenta flex items-center justify-center touch-target">
+<span class="material-icons-round text-3xl">delete</span>
+</button>
+</div>
+</div>
+<div class="hc-card p-4 opacity-80">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 border-2 border-hc-white flex items-center justify-center text-hc-white font-800 text-lg">
+                    JB
+                </div>
+<span class="text-lg font-800 text-hc-white uppercase">J.B. Hunt</span>
+</div>
+<span class="px-3 py-1 bg-hc-white text-hc-black font-800 text-xs uppercase">Pending</span>
+</div>
+<div class="flex items-start space-x-4 mb-4">
+<div class="flex-1 space-y-1">
+<p class="text-lg font-800 text-hc-white">NASHVILLE, TN → ATLANTA, GA</p>
+<p class="text-sm font-bold text-hc-cyan">249 MILES • $1,100</p>
+</div>
+</div>
+<button class="w-full border-2 border-hc-white text-hc-white py-4 font-900 uppercase touch-target">View Details</button>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-hc-black border-t-4 border-hc-white px-2 py-4 pb-8 flex justify-between items-center z-40">
+<button class="flex flex-col items-center space-y-1 text-hc-white touch-target">
+<span class="material-icons-round text-3xl">grid_view</span>
+<span class="text-[10px] font-900 uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-yellow touch-target relative border-b-4 border-hc-yellow pb-1">
+<span class="material-icons-round text-3xl">mail</span>
+<span class="text-[10px] font-900 uppercase">Inbox</span>
+<div class="absolute top-0 right-2 w-3 h-3 bg-hc-magenta border border-hc-black"></div>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-white touch-target">
+<span class="material-icons-round text-3xl">local_shipping</span>
+<span class="text-[10px] font-900 uppercase">Loads</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-white touch-target">
+<span class="material-icons-round text-3xl">account_balance</span>
+<span class="text-[10px] font-900 uppercase">Pay</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-hc-white touch-target">
+<span class="material-icons-round text-3xl">person</span>
+<span class="text-[10px] font-900 uppercase">User</span>
+</button>
+</nav>
+<button class="fixed bottom-28 right-6 w-16 h-16 bg-hc-cyan text-hc-black border-4 border-hc-black shadow-[4px_4px_0px_#FFFFFF] flex items-center justify-center active:translate-y-1 active:shadow-none transition-all z-20">
+<span class="material-icons-round text-4xl">add</span>
+</button>
+
+</body></html>
