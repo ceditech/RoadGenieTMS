@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { AppShellComponent } from './layout/app-shell/app-shell.component';
+import { TmsShellComponent } from './layout/tms-shell/tms-shell.component';
 import { mockAuthGuard } from './core/guards/mock-auth.guard';
 
 // Pages
-import { DashboardPage } from './pages/dashboard/dashboard.page';
+import { DashboardPageComponent } from './pages/dashboard/dashboard.page';
 import { AuthLoginPage } from './pages/auth/login/login.component';
 import { AuthRegisterPage } from './pages/auth/register/register.page';
 import { InboxPage } from './pages/loads/inbox/loads-inbox.component';
@@ -22,22 +22,25 @@ export const routes: Routes = [
     { path: 'login', component: AuthLoginPage },
     { path: 'register', component: AuthRegisterPage },
 
-    // Protected (AppShell)
+    // Protected (TMS Shell)
     {
         path: '',
-        component: AppShellComponent,
+        component: TmsShellComponent,
         canActivate: [mockAuthGuard],
         children: [
-            { path: 'dashboard', component: DashboardPage },
-            { path: 'tms/loads', component: InboxPage },
-            { path: 'tms/loads/my', component: MyLoadsPage },
-            { path: 'tms/loads/post/1', component: PostLoadStep1Page },
-            { path: 'tms/loads/post/2', component: PostLoadStep2Page },
-            { path: 'tms/loads/post/3', component: PostLoadStep3Page },
-            { path: 'tms/drivers', component: DriversListPage },
-            { path: 'tms/drivers/:id', component: DriverDetailsPage },
-            { path: 'tms/drivers/:id/edit', component: DriverEditPage },
-            { path: 'tms/documents', component: DocumentsPage },
+            { path: 'dashboard', component: DashboardPageComponent },
+            { path: 'loads', component: InboxPage },
+            { path: 'loads/my', component: MyLoadsPage },
+            { path: 'loads/post/1', component: PostLoadStep1Page },
+            { path: 'loads/post/2', component: PostLoadStep2Page },
+            { path: 'loads/post/3', component: PostLoadStep3Page },
+            { path: 'drivers', component: DriversListPage },
+            { path: 'drivers/:id', component: DriverDetailsPage },
+            { path: 'drivers/:id/edit', component: DriverEditPage },
+            { path: 'invoices', redirectTo: 'dashboard' }, // Placeholder
+            { path: 'reports', redirectTo: 'dashboard' },  // Placeholder
+            { path: 'fleet-safety', redirectTo: 'dashboard' }, // Placeholder
+            { path: 'documents', component: DocumentsPage },
             { path: 'settings', component: SettingsPage },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]

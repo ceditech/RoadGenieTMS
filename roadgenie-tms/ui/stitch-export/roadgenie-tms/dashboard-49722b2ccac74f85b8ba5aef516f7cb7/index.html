@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoadGenieTMS - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- App Shell / Layout Container -->
+<div class="flex h-full grow">
+<!-- Sidebar Navigation -->
+<aside class="flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark/50 backdrop-blur-md">
+<div class="flex items-center gap-3 px-6 py-8">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined !text-xl">local_shipping</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">RoadGenie<span class="text-primary text-sm align-top">TMS</span></h2>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="group flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2.5 text-primary" href="#">
+<span class="material-symbols-outlined !text-[22px]">grid_view</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined !text-[22px]">swap_horiz</span>
+<span class="text-sm font-medium">Loads</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined !text-[22px]">badge</span>
+<span class="text-sm font-medium">Drivers</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined !text-[22px]">receipt_long</span>
+<span class="text-sm font-medium">Invoices</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined !text-[22px]">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined !text-[22px]">monitoring</span>
+<span class="text-sm font-medium">Fleet Safety</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="rounded-xl bg-slate-100 dark:bg-slate-800 p-4">
+<p class="text-xs font-bold uppercase tracking-wider text-slate-400">Subscription</p>
+<p class="mt-1 text-sm font-semibold">Pro Plan (Annual)</p>
+<div class="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="h-full w-3/4 bg-primary"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex flex-1 flex-col bg-background-light dark:bg-background-dark">
+<!-- Top Header -->
+<header class="flex h-20 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-background-dark/50 px-8 backdrop-blur-xl sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Dashboard</h1>
+<span class="flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-500 uppercase tracking-wide border border-emerald-500/20">
+<span class="size-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Live System
+                        </span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 !text-xl">search</span>
+<input class="h-10 w-72 rounded-lg border-none bg-slate-100 pl-10 text-sm focus:ring-2 focus:ring-primary dark:bg-slate-800 dark:text-slate-200" placeholder="Search loads, drivers, or ID..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="relative flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 rounded-full border-2 border-background-dark bg-red-500"></span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold">Alex Rivers</p>
+<p class="text-xs text-slate-500">Fleet Manager</p>
+</div>
+<img class="size-10 rounded-lg object-cover ring-2 ring-primary/20" data-alt="User profile picture showing a professional fleet manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjhc8X8sODRnD21LgPfn41OcFebwPMYgYq_FDQ3L3YPpVLsFsabQA65IYP6WdYGxEt2MxqfpSo68QOZPgMcWnSR9o0Mz55tbNaWD0QYn-1zTFMtbNHKSWJqn17ulc3LuKnrE2Z3TYXs1iD0iPcgf2d9k7O78LonZ4dcrCVlqZC6abA1NwfgMDlTzQBfNm3unF4luKcpwvet5UOO2zkFzcAeJ221F7GCegJ8VNy9_y_Z3MKAhF1DMhuSnHgxQuf4lW8Ehpnw-pYWei8"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="flex-1 space-y-8 p-8 max-w-7xl mx-auto w-full">
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<!-- KPI Card: Active Loads -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex size-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">trending_up</span>
+                                    +5.2%
+                                </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Loads</p>
+<h3 class="mt-1 text-3xl font-black text-slate-900 dark:text-slate-100">124</h3>
+</div>
+<!-- KPI Card: Total Revenue -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm ring-1 ring-primary/20">
+<div class="flex items-center justify-between mb-4">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">trending_up</span>
+                                    +12.5%
+                                </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Revenue</p>
+<h3 class="mt-1 text-3xl font-black text-slate-900 dark:text-slate-100">$45,280.00</h3>
+</div>
+<!-- KPI Card: Driver Availability -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex size-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+<span class="material-symbols-outlined">person_pin_circle</span>
+</div>
+<span class="text-xs font-bold text-red-500 flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">trending_down</span>
+                                    -2.1%
+                                </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Driver Availability</p>
+<h3 class="mt-1 text-3xl font-black text-slate-900 dark:text-slate-100">42<span class="text-lg font-bold text-slate-400">/50</span></h3>
+<div class="mt-3 h-1.5 w-full rounded-full bg-slate-100 dark:bg-slate-800">
+<div class="h-full w-[84%] rounded-full bg-emerald-500"></div>
+</div>
+</div>
+<!-- KPI Card: Pending Invoices -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex size-10 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<span class="text-xs font-bold text-emerald-500 flex items-center gap-1">
+<span class="material-symbols-outlined !text-sm">trending_up</span>
+                                    +3.8%
+                                </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Pending Invoices</p>
+<h3 class="mt-1 text-3xl font-black text-slate-900 dark:text-slate-100">$12,400.00</h3>
+</div>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+<!-- Revenue Overview (Chart Placeholder) -->
+<div class="lg:col-span-2 flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 p-6">
+<h3 class="text-lg font-bold">Revenue Overview</h3>
+<div class="flex gap-2">
+<button class="rounded-lg bg-slate-100 px-3 py-1 text-xs font-semibold hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors">Weekly</button>
+<button class="rounded-lg bg-primary px-3 py-1 text-xs font-semibold text-white shadow-lg shadow-primary/30">Monthly</button>
+</div>
+</div>
+<div class="relative flex-1 p-8 min-h-[400px]">
+<!-- Chart Visualization Simulation -->
+<div class="absolute inset-8 flex items-end justify-between gap-4">
+<div class="flex h-[40%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative group overflow-hidden">
+<div class="absolute bottom-0 w-full h-[60%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">JAN</span>
+</div>
+<div class="flex h-[60%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-[75%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">FEB</span>
+</div>
+<div class="flex h-[90%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-[90%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">MAR</span>
+</div>
+<div class="flex h-[55%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-[55%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">APR</span>
+</div>
+<div class="flex h-[75%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-[75%] bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">MAY</span>
+</div>
+<div class="flex h-[95%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden ring-2 ring-primary">
+<div class="absolute bottom-0 w-full h-[95%] bg-primary"></div>
+<div class="absolute top-2 right-1/2 translate-x-1/2 bg-slate-900 text-white text-[10px] px-1.5 py-0.5 rounded shadow-lg">$14.2k</div>
+</div>
+<span class="text-[10px] font-bold text-primary">JUN</span>
+</div>
+<div class="flex h-[45%] w-full flex-col items-center gap-3">
+<div class="w-full flex-1 rounded-t-lg bg-primary/20 relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-[45%] bg-primary/50"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">JUL</span>
+</div>
+</div>
+<!-- Grid lines simulation -->
+<div class="space-y-12 absolute inset-8 pointer-events-none">
+<div class="border-t border-dashed border-slate-200 dark:border-slate-800 w-full"></div>
+<div class="border-t border-dashed border-slate-200 dark:border-slate-800 w-full"></div>
+<div class="border-t border-dashed border-slate-200 dark:border-slate-800 w-full"></div>
+<div class="border-t border-dashed border-slate-200 dark:border-slate-800 w-full"></div>
+</div>
+</div>
+<div class="p-6 bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400">Current Period Revenue</span>
+</div>
+<button class="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
+                                        Export Report <span class="material-symbols-outlined !text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 p-6">
+<h3 class="text-lg font-bold">Recent Activity</h3>
+<button class="text-xs font-bold text-primary uppercase hover:underline">View All</button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- Activity Item 1 -->
+<div class="flex gap-4 relative">
+<div class="absolute left-5 top-10 bottom-[-24px] w-px bg-slate-200 dark:border-slate-800 border-l border-slate-200 dark:border-slate-800"></div>
+<div class="flex size-10 flex-none items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500 z-10">
+<span class="material-symbols-outlined !text-xl">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold">Load #4502 Delivered</p>
+<p class="mt-0.5 text-xs text-slate-500 leading-relaxed">Driver James Wilson confirmed delivery to Warehouse B, Chicago.</p>
+<p class="mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">2 MINS AGO</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4 relative">
+<div class="absolute left-5 top-10 bottom-[-24px] w-px bg-slate-200 dark:border-slate-800 border-l border-slate-200 dark:border-slate-800"></div>
+<div class="flex size-10 flex-none items-center justify-center rounded-lg bg-primary/10 text-primary z-10">
+<span class="material-symbols-outlined !text-xl">description</span>
+</div>
+<div>
+<p class="text-sm font-bold">New Invoice Generated</p>
+<p class="mt-0.5 text-xs text-slate-500 leading-relaxed">Invoice INV-2023-089 for $3,200.00 created for Atlas Logistics.</p>
+<p class="mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">15 MINS AGO</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4 relative">
+<div class="absolute left-5 top-10 bottom-[-24px] w-px bg-slate-200 dark:border-slate-800 border-l border-slate-200 dark:border-slate-800"></div>
+<div class="flex size-10 flex-none items-center justify-center rounded-lg bg-amber-500/10 text-amber-500 z-10">
+<span class="material-symbols-outlined !text-xl">warning</span>
+</div>
+<div>
+<p class="text-sm font-bold">HOS Warning</p>
+<p class="mt-0.5 text-xs text-slate-500 leading-relaxed">Driver Sarah Connor is approaching Hours of Service limit (15m left).</p>
+<p class="mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">42 MINS AGO</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-4 relative">
+<div class="flex size-10 flex-none items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 z-10">
+<span class="material-symbols-outlined !text-xl">navigation</span>
+</div>
+<div>
+<p class="text-sm font-bold">Load #4510 Dispatched</p>
+<p class="mt-0.5 text-xs text-slate-500 leading-relaxed">Carrier assigned: Elite Fleet Services for route New York - Atlanta.</p>
+<p class="mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">1 HOUR AGO</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Section -->
+<div class="flex flex-col md:flex-row gap-6">
+<!-- Driver Quick Map Status -->
+<div class="flex-1 rounded-xl bg-slate-900 border border-slate-800 relative overflow-hidden group min-h-[160px]">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Abstract dark city map showing logistics network" data-location="Chicago" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOQWXEL3X9VPUQi1xHiFNVpaz8Y5tOY3oDdA9JQbd05028lVpfDBnhGXQmcd1KRY_MjAfJIdbdFymavbsMYhMtb6Svv3u88oaAz_oEhVqV9oMpRNaOlRO-jVO7ueMUGF9GX4cJyVD94wHEMfCiA_7y5Toi2bjyqOQwSKc19jbLXiTlyhIbi3AakPCuc-3tK25tlaCDJdYJ9ET2EWiBgMk6ZJtbm3rwjnbHr836Z4-F0Dj3cvlJYdv4KUZYj7PCfnQypM5x_Vuxgqfv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+</div>
+<div class="relative p-6 flex flex-col justify-between h-full">
+<div>
+<h4 class="text-white font-bold text-lg">Live Fleet Tracking</h4>
+<p class="text-slate-400 text-sm">42 vehicles in motion across North America</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-primary hover:bg-primary/90 text-white text-xs font-bold py-2 px-4 rounded-lg transition-colors">Open Fleet Map</button>
+<button class="bg-slate-800/80 hover:bg-slate-800 text-white text-xs font-bold py-2 px-4 rounded-lg transition-colors border border-slate-700">Track ID</button>
+</div>
+</div>
+</div>
+<!-- Quick Reports -->
+<div class="w-full md:w-80 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+<h4 class="font-bold mb-4">Quick Reports</h4>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-sm font-medium">Monthly P&amp;L</span>
+</div>
+<span class="material-symbols-outlined !text-lg text-slate-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_gas_station</span>
+<span class="text-sm font-medium">Fuel Efficiency</span>
+</div>
+<span class="material-symbols-outlined !text-lg text-slate-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">history</span>
+<span class="text-sm font-medium">On-Time Performance</span>
+</div>
+<span class="material-symbols-outlined !text-lg text-slate-300 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer-style stats -->
+<footer class="mt-auto px-8 py-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-slate-500">
+<div class="flex gap-6">
+<span>API Status: Operational</span>
+<span>DB Latency: 12ms</span>
+</div>
+<div>
+                        RoadGenieTMS v4.2.0-stable
+                    </div>
+</footer>
+</main>
+</div>
+</div>
+</body></html>
