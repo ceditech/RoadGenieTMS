@@ -1,20 +1,18 @@
-// Use same styles as login for consistency
-@import '../login/login.component.scss';
+// Predominantly handled by Tailwind.
+:host {
+    display: block;
+    height: 100vh;
+}
 
-.terms {
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-align: center;
-    margin: 0.5rem 0 1rem;
-    line-height: 1.5;
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
 
-    a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 600;
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3b4354;
+    border-radius: 10px;
 }

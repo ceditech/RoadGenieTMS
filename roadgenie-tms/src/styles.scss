@@ -1,92 +1,42 @@
 @use '@angular/material' as mat;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Confirm Material baseline is included but neutralized for login if needed
 @include mat.core();
 
-// Define a custom theme
-$roadgenie-primary: mat.define-palette(mat.$indigo-palette);
-$roadgenie-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$roadgenie-warn: mat.define-palette(mat.$red-palette);
-
-$roadgenie-theme: mat.define-light-theme((color: (primary: $roadgenie-primary,
-        accent: $roadgenie-accent,
-        warn: $roadgenie-warn,
-      ),
-      typography: mat.define-typography-config(),
-      density: 0,
-    ));
-
-@include mat.all-component-themes($roadgenie-theme);
-
-:root {
-  --primary: #135bec;
-  --bg: #f6f7f8;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --focus: 3px solid #135bec;
-  --radius: 8px;
-
-  --primary-rgb: 19, 91, 236;
-  --surface-rgb: 255, 255, 255;
-  --text-rgb: 15, 23, 42;
+// Stitch Global CSS
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-.dark-theme {
-  --bg: #0a0f16;
-  --surface: #111a24;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --border: #1e293b;
-
-  --primary-rgb: 19, 91, 236;
-  --surface-rgb: 17, 26, 36;
-  --text-rgb: 241, 245, 249;
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+// Global Reset/Theme
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Inter', sans-serif;
+  @apply bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100;
   margin: 0;
 }
 
-/* ADA Baseline */
+// Neutralize mat-typography for specific pages if needed
+.no-mat-typography {
+  font-family: 'Inter', sans-serif !important;
+
+  * {
+    font-family: 'Inter', sans-serif !important;
+  }
+}
+
+// Focus outline from Milestone 1
 :focus-visible {
-  outline: 2px solid var(--primary) !important;
+  outline: 2px solid #135bec;
   outline-offset: 2px;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary);
-  color: white;
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.2s;
-  text-decoration: none;
-
-  &:focus {
-    top: 0;
-  }
-}
-
-.rg-container {
-  width: 100%;
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-/* Mobile-first responsive */
-@media (min-width: 768px) {
-  .rg-container {
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
 }

@@ -2,11 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MockAuthService } from '../../../core/services/mock-auth.service';
 
@@ -17,11 +12,6 @@ import { MockAuthService } from '../../../core/services/mock-auth.service';
     CommonModule,
     ReactiveFormsModule,
     RouterLink,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
     MatSnackBarModule
   ],
   templateUrl: './login.component.html',
@@ -45,7 +35,6 @@ export class AuthLoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    // Get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
@@ -54,7 +43,10 @@ export class AuthLoginPage implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
 
     this.isLoading = true;
     const { email, password } = this.loginForm.value;
@@ -66,16 +58,19 @@ export class AuthLoginPage implements OnInit {
       },
       error: () => {
         this.isLoading = false;
-        this.snackBar.open('Invalid credentials', 'Close', { duration: 3000 });
+        this.snackBar.open('Invalid credentials. Use any email and min 6 char password.', 'Close', {
+          duration: 4000,
+          panelClass: ['error-snackbar']
+        });
       }
     });
   }
 
   onSocialLogin(provider: string): void {
-    this.snackBar.open(`${provider} login coming soon`, 'OK', { duration: 2000 });
+    this.snackBar.open(`${provider} login is not implemented in this mock.`, 'OK', { duration: 3000 });
   }
 
   onForgotPassword(): void {
-    this.snackBar.open('Password reset coming soon', 'OK', { duration: 2000 });
+    this.snackBar.open('Password recovery is coming soon.', 'OK', { duration: 3000 });
   }
 }

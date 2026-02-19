@@ -1,81 +1,156 @@
-<div class="login-wrapper">
-    <!-- Decorative background elements -->
-    <div class="bg-gradient"></div>
-    <div class="bg-vignette"></div>
+<div class="flex min-h-screen bg-[#101622] font-sans selection:bg-primary/30 selection:text-white">
+    <!-- Left Side: Marketing (Hidden on mobile) -->
+    <div class="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-12 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/login/login-bg.png" alt="Logistics Background" class="w-full h-full object-cover">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#101622] via-[#101622]/60 to-transparent"></div>
+        </div>
 
-    <div class="login-container">
-        <header class="brand-header">
-            <div class="logo-box">
-                <mat-icon>local_shipping</mat-icon>
+        <!-- Top: Logo & Brand -->
+        <div class="relative z-10 flex items-center gap-3">
+            <div
+                class="w-10 h-10 bg-[#135bec] rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <span class="material-symbols-outlined text-white text-2xl tracking-tighter">local_shipping</span>
             </div>
-            <h1>RoadGenie<span>TMS</span></h1>
-            <p>Logistics simplified.</p>
-        </header>
+            <span class="text-2xl font-bold text-white tracking-tight">RoadGenie<span
+                    class="text-[#135bec]">TMS</span></span>
+        </div>
 
-        <main class="login-card glass">
-            <div class="card-header">
-                <h2>Welcome Back</h2>
-                <p>Enter your credentials to access your dashboard.</p>
-            </div>
+        <!-- Center: Value Props -->
+        <div class="relative z-10 max-w-lg mb-20">
+            <h1 class="text-5xl font-extrabold text-white leading-tight mb-12">
+                Revolutionizing Logistics <br /> Management.
+            </h1>
 
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-                <mat-form-field appearance="outline">
-                    <mat-label>Email Address</mat-label>
-                    <input matInput type="email" formControlName="email" placeholder="name@company.com"
-                        autocomplete="email">
-                    <mat-icon matPrefix>email</mat-icon>
-                    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
-                    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email address</mat-error>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password"
-                        placeholder="••••••••" autocomplete="current-password">
-                    <mat-icon matPrefix>lock</mat-icon>
-                    <button mat-icon-button matSuffix (click)="togglePassword()" type="button"
-                        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
-                        <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
-                    </button>
-                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
-                    <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Minimum 6 characters</mat-error>
-                </mat-form-field>
-
-                <div class="form-actions">
-                    <button type="button" mat-button color="primary" class="forgot-btn"
-                        (click)="onForgotPassword()">Forgot Password?</button>
+            <div class="flex flex-col gap-4">
+                <!-- Feature 1 -->
+                <div
+                    class="glass-effect p-4 rounded-2xl flex items-center gap-4 border-white/10 transition-all hover:bg-white/5 cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-[#135bec]">
+                        <span class="material-symbols-outlined text-lg">location_on</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Real-time Load Tracking</span>
                 </div>
 
-                <button mat-flat-button color="primary" class="submit-btn" type="submit"
-                    [disabled]="loginForm.invalid || isLoading">
+                <!-- Feature 2 -->
+                <div
+                    class="glass-effect p-4 rounded-2xl flex items-center gap-4 border-white/10 transition-all hover:bg-white/5 cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-[#135bec]">
+                        <span class="material-symbols-outlined text-lg">bolt</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Smart Dispatching AI</span>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="glass-effect p-4 rounded-2xl flex items-center gap-4 border-white/10 transition-all hover:bg-white/5 cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-[#135bec]">
+                        <span class="material-symbols-outlined text-lg">assignment</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Integrated Document Management</span>
+                </div>
+
+                <!-- Feature 4 -->
+                <div
+                    class="glass-effect p-4 rounded-2xl flex items-center gap-4 border-white/10 transition-all hover:bg-white/5 cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-[#135bec]">
+                        <span class="material-symbols-outlined text-lg">forum</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Instant Broker Communication</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom: Attribution -->
+        <div class="relative z-10">
+            <p class="text-gray-500 text-xs">© 2024 RoadGenie Technologies Inc. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Right Side: Login Form -->
+    <div class="flex-1 flex flex-col items-center justify-center p-8 sm:p-12 lg:p-24 bg-[#101622]">
+        <div class="w-full max-w-[400px]">
+            <div class="mb-10">
+                <h2 class="text-4xl font-bold text-white mb-3">Welcome Back</h2>
+                <p class="text-gray-500 text-lg">Enter your credentials to access your dashboard.</p>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+                <!-- Email Field -->
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-white ml-1">Email Address</label>
+                    <div class="relative group">
+                        <input type="email" formControlName="email" placeholder="name@company.com"
+                            class="w-full bg-[#1e293b]/50 border border-gray-800 rounded-xl px-4 py-4 text-white placeholder-gray-600 outline-none transition-all focus:border-[#135bec] focus:ring-1 focus:ring-[#135bec]/50">
+                    </div>
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
+                        class="text-xs text-red-500 ml-1">
+                        Valid email address is required
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between ml-1">
+                        <label class="text-sm font-semibold text-white">Password</label>
+                        <button (click)="onForgotPassword()" type="button"
+                            class="text-sm font-semibold text-[#135bec] hover:text-[#3b82f6] transition-colors">Forgot
+                            Password?</button>
+                    </div>
+                    <div class="relative group">
+                        <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                            placeholder="••••••••"
+                            class="w-full bg-[#1e293b]/50 border border-gray-800 rounded-xl px-4 pr-12 py-4 text-white placeholder-gray-600 outline-none transition-all focus:border-[#135bec] focus:ring-1 focus:ring-[#135bec]/50">
+                        <button type="button" (click)="togglePassword()"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-xl">{{ showPassword ? 'visibility_off' :
+                                'visibility' }}</span>
+                        </button>
+                    </div>
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                        class="text-xs text-red-500 ml-1">
+                        Minimum 6 characters required
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" [disabled]="loginForm.invalid || isLoading"
+                    class="w-full bg-[#135bec] hover:bg-[#3b82f6] disabled:opacity-50 disabled:pointer-events-none text-white font-bold h-14 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2 group active:scale-[0.98]">
                     <span *ngIf="!isLoading">Sign In</span>
-                    <mat-spinner diameter="24" *ngIf="isLoading"></mat-spinner>
+                    <div *ngIf="isLoading"
+                        class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <span *ngIf="!isLoading"
+                        class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">login</span>
                 </button>
             </form>
 
-            <div class="divider">
-                <span>OR CONTINUE WITH</span>
+            <!-- Social Logins -->
+            <div class="mt-8 space-y-4">
+                <div class="relative flex items-center py-4">
+                    <div class="flex-grow border-t border-gray-800"></div>
+                    <span class="flex-shrink mx-4 text-xs font-bold text-gray-600 uppercase tracking-widest">or continue
+                        with</span>
+                    <div class="flex-grow border-t border-gray-800"></div>
+                </div>
+
+                <button (click)="onSocialLogin('Google')" type="button"
+                    class="w-full border border-gray-800 bg-transparent hover:bg-gray-800/50 text-white font-semibold h-14 rounded-xl transition-all flex items-center justify-center gap-3">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google"
+                        class="w-5 h-5">
+                    <span>Google Account</span>
+                </button>
             </div>
 
-            <div class="social-grid">
-                <button mat-stroked-button class="social-btn" (click)="onSocialLogin('Google')">
-                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" width="20">
-                    Google
-                </button>
-                <button mat-stroked-button class="social-btn" (click)="onSocialLogin('SSO')">
-                    <mat-icon>vpn_key</mat-icon>
-                    SSO
-                </button>
+            <!-- Footer -->
+            <div class="mt-8 text-center">
+                <p class="text-gray-500">
+                    Don't have an account?
+                    <a routerLink="/register"
+                        class="text-[#135bec] font-bold hover:underline underline-offset-4 ml-1">Create one</a>
+                </p>
             </div>
-        </main>
-
-        <footer class="login-footer">
-            <p>Don't have an account? <a routerLink="/register">Create one</a></p>
-            <div class="legal">
-                <a href="#">Privacy Policy</a>
-                <span>•</span>
-                <a href="#">Terms of Service</a>
-            </div>
-        </footer>
+        </div>
     </div>
 </div>
