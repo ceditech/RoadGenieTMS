@@ -18,42 +18,43 @@ $roadgenie-theme: mat.define-light-theme((color: (primary: $roadgenie-primary,
 @include mat.all-component-themes($roadgenie-theme);
 
 :root {
-  --primary: #137fec;
+  --primary: #135bec;
   --bg: #f6f7f8;
   --surface: #ffffff;
   --text: #0f172a;
   --muted: #64748b;
   --border: #e2e8f0;
-  --focus: 3px solid #137fec;
+  --focus: 3px solid #135bec;
+  --radius: 8px;
 
-  --primary-rgb: 19, 127, 236;
+  --primary-rgb: 19, 91, 236;
   --surface-rgb: 255, 255, 255;
   --text-rgb: 15, 23, 42;
 }
 
 .dark-theme {
-  --bg: #101922;
-  --surface: #1e293b;
+  --bg: #0a0f16;
+  --surface: #111a24;
   --text: #f1f5f9;
   --muted: #94a3b8;
-  --border: #334155;
+  --border: #1e293b;
 
-  --surface-rgb: 30, 41, 59;
+  --primary-rgb: 19, 91, 236;
+  --surface-rgb: 17, 26, 36;
   --text-rgb: 241, 245, 249;
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   transition: background-color 0.3s, color 0.3s;
+  margin: 0;
 }
-
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
 
 /* ADA Baseline */
 :focus-visible {
-  outline: var(--focus) !important;
+  outline: 2px solid var(--primary) !important;
   outline-offset: 2px;
 }
 

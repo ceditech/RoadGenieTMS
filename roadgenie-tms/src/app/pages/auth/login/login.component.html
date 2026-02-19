@@ -1,0 +1,81 @@
+<div class="login-wrapper">
+    <!-- Decorative background elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-vignette"></div>
+
+    <div class="login-container">
+        <header class="brand-header">
+            <div class="logo-box">
+                <mat-icon>local_shipping</mat-icon>
+            </div>
+            <h1>RoadGenie<span>TMS</span></h1>
+            <p>Logistics simplified.</p>
+        </header>
+
+        <main class="login-card glass">
+            <div class="card-header">
+                <h2>Welcome Back</h2>
+                <p>Enter your credentials to access your dashboard.</p>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput type="email" formControlName="email" placeholder="name@company.com"
+                        autocomplete="email">
+                    <mat-icon matPrefix>email</mat-icon>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email address</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                        placeholder="••••••••" autocomplete="current-password">
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <button mat-icon-button matSuffix (click)="togglePassword()" type="button"
+                        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+                        <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Minimum 6 characters</mat-error>
+                </mat-form-field>
+
+                <div class="form-actions">
+                    <button type="button" mat-button color="primary" class="forgot-btn"
+                        (click)="onForgotPassword()">Forgot Password?</button>
+                </div>
+
+                <button mat-flat-button color="primary" class="submit-btn" type="submit"
+                    [disabled]="loginForm.invalid || isLoading">
+                    <span *ngIf="!isLoading">Sign In</span>
+                    <mat-spinner diameter="24" *ngIf="isLoading"></mat-spinner>
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>OR CONTINUE WITH</span>
+            </div>
+
+            <div class="social-grid">
+                <button mat-stroked-button class="social-btn" (click)="onSocialLogin('Google')">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" width="20">
+                    Google
+                </button>
+                <button mat-stroked-button class="social-btn" (click)="onSocialLogin('SSO')">
+                    <mat-icon>vpn_key</mat-icon>
+                    SSO
+                </button>
+            </div>
+        </main>
+
+        <footer class="login-footer">
+            <p>Don't have an account? <a routerLink="/register">Create one</a></p>
+            <div class="legal">
+                <a href="#">Privacy Policy</a>
+                <span>•</span>
+                <a href="#">Terms of Service</a>
+            </div>
+        </footer>
+    </div>
+</div>

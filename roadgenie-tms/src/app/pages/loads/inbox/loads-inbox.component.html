@@ -1,0 +1,27 @@
+<div class="inbox-container">
+    <div class="header-section">
+        <div class="tabs">
+            <button class="tab" [class.active]="activeTab === 'loads'" (click)="onTabChange('loads')">Loads</button>
+            <button class="tab" [class.active]="activeTab === 'search'" (click)="onTabChange('search')">Search</button>
+        </div>
+    </div>
+
+    <div class="stats-row">
+        <rg-status-pill title="Pending" value="12" color="#f59e0b"></rg-status-pill>
+        <rg-status-pill title="Active" value="4" color="#3b82f6"></rg-status-pill>
+        <rg-status-pill title="Delivered" value="156" color="#10b981"></rg-status-pill>
+    </div>
+
+    <div class="filter-chips">
+        <div class="scroll-wrapper">
+            <rg-filter-chips *ngFor="let opt of filterOptions" [label]="opt" [active]="activeFilter === opt"
+                (clicked)="onFilterChange(opt)"></rg-filter-chips>
+        </div>
+    </div>
+
+    <div class="load-list">
+        <rg-load-card *ngFor="let load of mockLoads" [load]="load" (selected)="onLoadSelected($event)"></rg-load-card>
+    </div>
+
+    <app-bottom-nav></app-bottom-nav>
+</div>
