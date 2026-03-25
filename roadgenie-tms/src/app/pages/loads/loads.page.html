@@ -1,0 +1,285 @@
+<div
+    class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-[#0c111d] overflow-hidden animate-in fade-in duration-500">
+    <!-- Page Specific Header (Loads / Inbox) -->
+    <header
+        class="h-16 flex-shrink-0 flex items-center justify-between px-6 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 z-10">
+        <div class="flex items-center gap-4">
+            <button class="lg:hidden text-slate-500">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <h2 class="text-lg font-bold">Loads</h2>
+            <div class="hidden sm:flex items-center gap-2 text-sm text-slate-400">
+                <span>/</span>
+                <span class="text-slate-600 dark:text-slate-300">Inbox</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-6">
+            <div
+                class="hidden md:flex items-center gap-2 text-xs font-medium px-2 py-1 bg-green-500/10 text-green-500 rounded-full">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Live Connection
+            </div>
+            <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+                <span class="material-symbols-outlined">notifications</span>
+                <span
+                    class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white dark:ring-background-dark"></span>
+            </button>
+            <div class="w-px h-6 bg-slate-200 dark:border-slate-800"></div>
+            <button class="flex items-center gap-2 p-1 pl-3 bg-slate-100 dark:bg-slate-800 rounded-full">
+                <span class="text-xs font-semibold">TMS Admin</span>
+                <div class="w-7 h-7 bg-primary/20 text-primary rounded-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Filters and Search Section -->
+    <section
+        class="p-4 sm:p-6 bg-white dark:bg-background-dark/50 border-b border-slate-200 dark:border-slate-800 space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+            <div class="relative flex-1">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input [(ngModel)]="searchQuery"
+                    class="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/50 placeholder:text-slate-500 text-sm"
+                    placeholder="Search by city, state, broker, or load ID..." type="text" />
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                <div class="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                    <button (click)="activeTab = 'Inbox'" [class.bg-white]="activeTab === 'Inbox'"
+                        [class.dark:bg-slate-700]="activeTab === 'Inbox'" [class.shadow-sm]="activeTab === 'Inbox'"
+                        class="px-4 py-1.5 text-sm font-medium rounded-md transition-all"
+                        [class.text-slate-500]="activeTab !== 'Inbox'">Inbox</button>
+                    <button (click)="activeTab = 'Archived'" [class.bg-white]="activeTab === 'Archived'"
+                        [class.dark:bg-slate-700]="activeTab === 'Archived'"
+                        [class.shadow-sm]="activeTab === 'Archived'"
+                        class="px-4 py-1.5 text-sm font-medium rounded-md transition-all"
+                        [class.text-slate-500]="activeTab !== 'Archived'">Archived</button>
+                </div>
+                <button
+                    class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-sm font-medium transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">sort</span>
+                    Sort: Newest
+                </button>
+                <button (click)="openPostLoad()"
+                    class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined text-[18px]">add_circle</span>
+                    Post a Load
+                </button>
+                <button (click)="openPostLoad()"
+                    class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined text-[18px]">add</span>
+                    Manual Load
+                </button>
+            </div>
+        </div>
+        <!-- Filter Chips -->
+        <div class="flex flex-wrap items-center gap-3">
+            <div class="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest mr-2">
+                <span class="material-symbols-outlined text-[16px]">filter_alt</span>
+                Filters
+            </div>
+            <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 mx-1"></div>
+            <!-- Source Filters -->
+            <button *ngFor="let filter of ['DAT Power', 'Truckstop']" (click)="toggleSourceFilter(filter)" [ngClass]="activeSourceFilters.includes(filter) 
+                    ? 'border-primary bg-primary/10 text-primary' 
+                    : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'"
+                class="flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold transition-colors">
+                {{ filter }}
+                <span *ngIf="activeSourceFilters.includes(filter)"
+                    class="material-symbols-outlined text-[14px]">close</span>
+            </button>
+
+            <div class="h-4 w-px bg-slate-300 dark:bg-slate-700 mx-1"></div>
+            <!-- Status Filters -->
+            <button *ngFor="let status of ['Available', 'Booked', 'Completed']" (click)="setStatusFilter(status)"
+                [ngClass]="activeStatusFilter === status 
+                    ? (status === 'Available' ? 'border-green-500/50 bg-green-500/10 text-green-600 dark:text-green-400' : 'border-primary bg-primary/10 text-primary')
+                    : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'"
+                class="flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold transition-colors">
+                <span *ngIf="activeStatusFilter === status && status !== 'Available'">Status: </span>
+                <span *ngIf="status === 'Available'">Status: </span>
+                {{ status }}
+            </button>
+
+            <button (click)="clearFilters()" class="ml-auto text-xs text-primary font-bold hover:underline">Clear
+                All</button>
+        </div>
+    </section>
+
+    <!-- Table / Content Scroll Area -->
+    <div class="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
+        <!-- Desktop Table View -->
+        <div class="hidden lg:block min-w-full align-middle">
+            <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+                <thead class="bg-slate-50 dark:bg-slate-900/50 sticky top-0 z-10">
+                    <tr>
+                        <th class="py-3.5 pl-6 pr-3 text-left text-xs font-bold text-slate-500 uppercase tracking-wider"
+                            scope="col">Pickup / Dropoff</th>
+                        <th class="px-3 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider"
+                            scope="col">Specs</th>
+                        <th class="px-3 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider"
+                            scope="col">Broker</th>
+                        <th class="px-3 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider"
+                            scope="col">Rate / RPM</th>
+                        <th class="px-3 py-3.5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider"
+                            scope="col">Status</th>
+                        <th class="relative py-3.5 pl-3 pr-6 text-right" scope="col">
+                            <span class="sr-only">Actions</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-background-dark/30">
+                    <tr *ngFor="let load of loads" (click)="openDetails(load)"
+                        class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+                        <td class="whitespace-nowrap py-5 pl-6 pr-3">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-slate-400">PU:</span>
+                                    <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">{{
+                                        load.pickup.city }}, {{ load.pickup.state }}</span>
+                                    <span class="text-xs text-slate-500">{{ load.pickup.date }} • {{ load.pickup.time
+                                        }}</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-slate-400">DO:</span>
+                                    <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">{{
+                                        load.dropoff.city }}, {{ load.dropoff.state }}</span>
+                                    <span class="text-xs text-slate-500">{{ load.dropoff.date }} • {{ load.dropoff.time
+                                        }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="whitespace-nowrap px-3 py-5">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-medium">{{ load.miles | number }} miles</span>
+                                <div class="flex gap-2 mt-1">
+                                    <span *ngFor="let spec of load.specs"
+                                        class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300 uppercase">
+                                        {{ spec }}
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="whitespace-nowrap px-3 py-5">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                                    <span class="material-symbols-outlined text-blue-500 text-[18px]">business</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-bold">{{ load.broker.name }}</span>
+                                    <div class="flex items-center gap-1">
+                                        <span
+                                            class="material-symbols-outlined text-[12px] text-yellow-500 fill-current">star</span>
+                                        <span class="text-[10px] text-slate-500">{{ load.broker.rating }} ({{
+                                            load.broker.reviews }} reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="whitespace-nowrap px-3 py-5">
+                            <div class="flex flex-col">
+                                <span class="text-lg font-bold text-primary">${{ load.rate | number }}</span>
+                                <span class="text-xs font-medium text-slate-500">${{ load.rpm | number:'1.2-2' }} /
+                                    mile</span>
+                            </div>
+                        </td>
+                        <td class="whitespace-nowrap px-3 py-5">
+                            <span [ngClass]="{
+                                'bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400': load.status === 'Available',
+                                'bg-blue-100 dark:bg-primary/20 text-blue-700 dark:text-primary': load.status === 'Booked',
+                                'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400': load.status === 'Completed'
+                            }" class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold">
+                                {{ load.status }}
+                            </span>
+                        </td>
+                        <td class="whitespace-nowrap py-5 pl-3 pr-6 text-right text-sm font-medium">
+                            <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="p-2 text-slate-400 hover:text-red-500 transition-colors" title="Skip">
+                                    <span class="material-symbols-outlined">block</span>
+                                </button>
+                                <button
+                                    class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-xs font-bold"
+                                    title="Negotiate">
+                                    Negotiate
+                                </button>
+                                <button class="px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-bold"
+                                    title="Assign">
+                                    Assign
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mobile Card-based View -->
+        <div class="lg:hidden p-4 space-y-4">
+            <div *ngFor="let load of loads" (click)="openDetails(load)"
+                class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 space-y-4 shadow-sm active:scale-[0.98] transition-transform">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded bg-primary/10 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[16px]">business</span>
+                        </div>
+                        <span class="text-xs font-bold">{{ load.broker.name }}</span>
+                    </div>
+                    <span [ngClass]="{
+                        'bg-green-500/10 text-green-500': load.status === 'Available',
+                        'bg-primary/10 text-primary': load.status === 'Booked',
+                        'bg-slate-500/10 text-slate-500': load.status === 'Completed'
+                    }" class="px-2 py-0.5 text-[10px] font-bold rounded-full uppercase">{{ load.status }}</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="flex flex-col items-center gap-1 py-1">
+                            <div class="w-2 h-2 rounded-full border-2 border-primary bg-white dark:bg-slate-900"></div>
+                            <div class="w-0.5 h-6 bg-slate-200 dark:bg-slate-700"></div>
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                        </div>
+                        <div class="flex-1 space-y-2">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">{{ load.pickup.city }}, {{
+                                    load.pickup.state }}</p>
+                                <p class="text-xs font-semibold">{{ load.pickup.date }} • {{ load.pickup.time }}</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase">{{ load.dropoff.city }}, {{
+                                    load.dropoff.state }}</p>
+                                <p class="text-xs font-semibold">{{ load.dropoff.date }} • {{ load.dropoff.time }}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-lg font-bold text-primary">${{ load.rate | number }}</p>
+                            <p class="text-[10px] text-slate-500">${{ load.rpm | number:'1.2-2' }}/mi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <div class="flex gap-2">
+                        <span *ngFor="let spec of load.specs"
+                            class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded uppercase">
+                            {{ spec }}
+                        </span>
+                    </div>
+                    <button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg">Assign</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drawer Component -->
+    <app-load-details-drawer [open]="drawerOpen" [load]="selectedLoad" (close)="closeDetails()">
+    </app-load-details-drawer>
+
+    <!-- Post Load Modal -->
+    <app-post-load-modal [open]="postModalOpen" (close)="closePostLoad()">
+    </app-post-load-modal>
+</div>

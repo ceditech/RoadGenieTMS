@@ -17,6 +17,8 @@ import { DriverEditPage } from './pages/drivers/edit/driver-edit.page';
 import { DocumentsPage } from './pages/documents/documents.page';
 import { SettingsPage } from './pages/settings/user-settings.component';
 
+import { LoadsPage } from './pages/loads/loads.page';
+
 export const routes: Routes = [
     // Public
     { path: 'login', component: AuthLoginPage },
@@ -29,19 +31,14 @@ export const routes: Routes = [
         canActivate: [mockAuthGuard],
         children: [
             { path: 'dashboard', component: DashboardPageComponent },
-            { path: 'loads', component: InboxPage },
-            { path: 'loads/my', component: MyLoadsPage },
-            { path: 'loads/post/1', component: PostLoadStep1Page },
-            { path: 'loads/post/2', component: PostLoadStep2Page },
-            { path: 'loads/post/3', component: PostLoadStep3Page },
+            { path: 'loads', component: LoadsPage },
             { path: 'drivers', component: DriversListPage },
             { path: 'drivers/:id', component: DriverDetailsPage },
             { path: 'drivers/:id/edit', component: DriverEditPage },
-            { path: 'invoices', redirectTo: 'dashboard' }, // Placeholder
-            { path: 'reports', redirectTo: 'dashboard' },  // Placeholder
-            { path: 'fleet-safety', redirectTo: 'dashboard' }, // Placeholder
-            { path: 'documents', component: DocumentsPage },
+            { path: 'accounting', redirectTo: 'dashboard' }, // Placeholder
             { path: 'settings', component: SettingsPage },
+            { path: 'support', redirectTo: 'dashboard' }, // Placeholder
+            { path: 'documents', component: DocumentsPage },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]
     },
